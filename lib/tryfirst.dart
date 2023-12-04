@@ -12,13 +12,13 @@ class FileUtils{
 
   static replaceFileName(String filePath,String text,String replace) {
     // 获取文件的目录路径和文件名
-    var directory = path.dirname(filePath);
-    var fileName = path.basenameWithoutExtension(filePath);
-    var extension = path.extension(filePath);
+    String directory = path.dirname(filePath);
+    String fileName = path.basenameWithoutExtension(filePath);
+    String extension = path.extension(filePath);
     // 新文件路径
-    var newFilePath = path.join(directory, fileName.replaceAll(RegExp(r'text'), replace),extension);
+    String newFilePath = path.join(directory, fileName.replaceAll(RegExp(r'text'), replace),extension);
     // 创建File对象
-    var file = File(filePath);
+    File file = File(filePath);
     // 重命名文件
     file.renameSync(newFilePath);
     log('文件格式更改成功！');
@@ -26,10 +26,10 @@ class FileUtils{
 
   static reformatFile(String filePath, {String? format,String? from,String? replace}) {
     // 获取文件的目录路径和文件名
-    var directory = path.dirname(filePath);
-    var fileName = path.basenameWithoutExtension(filePath);
-    var extension = path.extension(filePath);
-    var newFileName = fileName;
+    String directory = path.dirname(filePath);
+    String fileName = path.basenameWithoutExtension(filePath);
+    String extension = path.extension(filePath);
+    String newFileName = fileName;
     if(replace != null){
       if(from != null){
         newFileName = newFileName.replaceAll(RegExp(from), replace);
@@ -38,9 +38,9 @@ class FileUtils{
       }
     }
     // 新文件路径
-    var newFilePath = path.join(directory, newFileName,format ?? extension);
+    String newFilePath = path.join(directory, newFileName,format ?? extension);
     // 创建File对象
-    var file = File(filePath);
+    File file = File(filePath);
     // 重命名文件
     file.renameSync(newFilePath);
     log('文件格式更改成功！');
