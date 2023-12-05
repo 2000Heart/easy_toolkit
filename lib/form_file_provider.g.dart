@@ -6,12 +6,12 @@ part of 'form_file_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$formFileHash() => r'd5c0539cc5d163523d5c7ff0847a33715d30137d';
+String _$formFileHash() => r'789f90f11cd9107a22291f0a746de1b5102e54ab';
 
 /// See also [FormFile].
 @ProviderFor(FormFile)
 final formFileProvider =
-    AutoDisposeNotifierProvider<FormFile, Object?>.internal(
+    AutoDisposeNotifierProvider<FormFile, FileModel>.internal(
   FormFile.new,
   name: r'formFileProvider',
   debugGetCreateSourceHash:
@@ -20,6 +20,6 @@ final formFileProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$FormFile = AutoDisposeNotifier<Object?>;
+typedef _$FormFile = AutoDisposeNotifier<FileModel>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

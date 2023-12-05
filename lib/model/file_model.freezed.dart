@@ -16,9 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FileModel {
-  String get dirName => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get extension => throw _privateConstructorUsedError;
+  String? get dirName => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get extension => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FileModelCopyWith<FileModel> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $FileModelCopyWith<$Res> {
   factory $FileModelCopyWith(FileModel value, $Res Function(FileModel) then) =
       _$FileModelCopyWithImpl<$Res, FileModel>;
   @useResult
-  $Res call({String dirName, String name, String extension});
+  $Res call({String? dirName, String? name, String? extension});
 }
 
 /// @nodoc
@@ -46,23 +46,23 @@ class _$FileModelCopyWithImpl<$Res, $Val extends FileModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dirName = null,
-    Object? name = null,
-    Object? extension = null,
+    Object? dirName = freezed,
+    Object? name = freezed,
+    Object? extension = freezed,
   }) {
     return _then(_value.copyWith(
-      dirName: null == dirName
+      dirName: freezed == dirName
           ? _value.dirName
           : dirName // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      extension: null == extension
+              as String?,
+      extension: freezed == extension
           ? _value.extension
           : extension // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$FileModelImplCopyWith<$Res>
       __$$FileModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String dirName, String name, String extension});
+  $Res call({String? dirName, String? name, String? extension});
 }
 
 /// @nodoc
@@ -89,23 +89,23 @@ class __$$FileModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dirName = null,
-    Object? name = null,
-    Object? extension = null,
+    Object? dirName = freezed,
+    Object? name = freezed,
+    Object? extension = freezed,
   }) {
     return _then(_$FileModelImpl(
-      dirName: null == dirName
+      dirName: freezed == dirName
           ? _value.dirName
           : dirName // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      extension: null == extension
+              as String?,
+      extension: freezed == extension
           ? _value.extension
           : extension // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -113,15 +113,14 @@ class __$$FileModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FileModelImpl implements _FileModel {
-  const _$FileModelImpl(
-      {required this.dirName, required this.name, required this.extension});
+  const _$FileModelImpl({this.dirName, this.name, this.extension});
 
   @override
-  final String dirName;
+  final String? dirName;
   @override
-  final String name;
+  final String? name;
   @override
-  final String extension;
+  final String? extension;
 
   @override
   String toString() {
@@ -151,16 +150,16 @@ class _$FileModelImpl implements _FileModel {
 
 abstract class _FileModel implements FileModel {
   const factory _FileModel(
-      {required final String dirName,
-      required final String name,
-      required final String extension}) = _$FileModelImpl;
+      {final String? dirName,
+      final String? name,
+      final String? extension}) = _$FileModelImpl;
 
   @override
-  String get dirName;
+  String? get dirName;
   @override
-  String get name;
+  String? get name;
   @override
-  String get extension;
+  String? get extension;
   @override
   @JsonKey(ignore: true)
   _$$FileModelImplCopyWith<_$FileModelImpl> get copyWith =>

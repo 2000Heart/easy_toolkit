@@ -5,8 +5,8 @@ part 'file_model.freezed.dart';
 @freezed
 class FileModel with _$FileModel {
   const factory FileModel({
-    required String dirName,
-    required String name,
-    required String extension
+    String? dirName,
+    String? name,
+    String? extension
   }) = _FileModel;
 }
