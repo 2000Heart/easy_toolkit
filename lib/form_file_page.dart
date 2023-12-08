@@ -10,25 +10,30 @@ class FormFilePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    var file = ref.watch(formFileProvider);
     var formFile = ref.read(formFileProvider.notifier);
-    return Column(
-      children: [
-        Form(
-          child: Column(
-            children: [
-              TextFormField(
-                onChanged: (value) => formFile.dirName = value,
-              ),
-              TextFormField(
-                onChanged: (value) => formFile.name = value,
-              ),
-              TextFormField(
-                onChanged: (value) => formFile.extension = value,
-              ),
-            ],
-          )
-        )
-      ],
+    return Scaffold(
+      appBar: AppBar(title: const Text("文件编辑")),
+      body: Column(
+        children: [
+          Form(
+            child: Column(
+              children: [
+                TextFormField(
+                  onChanged: (value) => formFile.dirName = value,
+                ),
+                TextFormField(
+                  onChanged: (value) => formFile.name = value,
+                ),
+                TextFormField(
+                  onChanged: (value) => formFile.extension = value,
+                )
+              ]
+            )
+          ),
+          Text("${file.dirName}+${file.name}.${file.extension}")
+        ],
+      ),
     );
   }
 }

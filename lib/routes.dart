@@ -11,7 +11,7 @@ class Routes extends _$Routes{
 
   @override
   List<AutoRoute> get routes => [
-    AutoRoute(page: HomeRoute.page,path: "/home"),
-    AutoRoute(page: FormFileRoute.page,path: '/form')
+    AutoRoute(page: HomeRoute.page,path: "/home",initial: true),
+    AutoRoute(page: FormFileRoute.page,path: '/tools/form')
   ];
 }
