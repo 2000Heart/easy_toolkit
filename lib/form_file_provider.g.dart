@@ -6,7 +6,22 @@ part of 'form_file_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$formFileHash() => r'789f90f11cd9107a22291f0a746de1b5102e54ab';
+String _$pickFileHash() => r'aa1ad59397a082b4259fb7bf2cca3bb3ec308443';
+
+/// See also [PickFile].
+@ProviderFor(PickFile)
+final pickFileProvider =
+    AutoDisposeNotifierProvider<PickFile, FilePickerResult?>.internal(
+  PickFile.new,
+  name: r'pickFileProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$pickFileHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$PickFile = AutoDisposeNotifier<FilePickerResult?>;
+String _$formFileHash() => r'7b0fbb6387221698626799fa1937e32c5b50c3ac';
 
 /// See also [FormFile].
 @ProviderFor(FormFile)

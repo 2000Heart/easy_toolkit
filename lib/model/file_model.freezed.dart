@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FileModel {
   String? get dirName => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String? get origin => throw _privateConstructorUsedError;
+  String? get replace => throw _privateConstructorUsedError;
   String? get extension => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +31,8 @@ abstract class $FileModelCopyWith<$Res> {
   factory $FileModelCopyWith(FileModel value, $Res Function(FileModel) then) =
       _$FileModelCopyWithImpl<$Res, FileModel>;
   @useResult
-  $Res call({String? dirName, String? name, String? extension});
+  $Res call(
+      {String? dirName, String? origin, String? replace, String? extension});
 }
 
 /// @nodoc
@@ -47,7 +49,8 @@ class _$FileModelCopyWithImpl<$Res, $Val extends FileModel>
   @override
   $Res call({
     Object? dirName = freezed,
-    Object? name = freezed,
+    Object? origin = freezed,
+    Object? replace = freezed,
     Object? extension = freezed,
   }) {
     return _then(_value.copyWith(
@@ -55,9 +58,13 @@ class _$FileModelCopyWithImpl<$Res, $Val extends FileModel>
           ? _value.dirName
           : dirName // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      origin: freezed == origin
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as String?,
+      replace: freezed == replace
+          ? _value.replace
+          : replace // ignore: cast_nullable_to_non_nullable
               as String?,
       extension: freezed == extension
           ? _value.extension
@@ -75,7 +82,8 @@ abstract class _$$FileModelImplCopyWith<$Res>
       __$$FileModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? dirName, String? name, String? extension});
+  $Res call(
+      {String? dirName, String? origin, String? replace, String? extension});
 }
 
 /// @nodoc
@@ -90,7 +98,8 @@ class __$$FileModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? dirName = freezed,
-    Object? name = freezed,
+    Object? origin = freezed,
+    Object? replace = freezed,
     Object? extension = freezed,
   }) {
     return _then(_$FileModelImpl(
@@ -98,9 +107,13 @@ class __$$FileModelImplCopyWithImpl<$Res>
           ? _value.dirName
           : dirName // ignore: cast_nullable_to_non_nullable
               as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      origin: freezed == origin
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as String?,
+      replace: freezed == replace
+          ? _value.replace
+          : replace // ignore: cast_nullable_to_non_nullable
               as String?,
       extension: freezed == extension
           ? _value.extension
@@ -113,18 +126,21 @@ class __$$FileModelImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FileModelImpl implements _FileModel {
-  const _$FileModelImpl({this.dirName, this.name, this.extension});
+  const _$FileModelImpl(
+      {this.dirName, this.origin, this.replace, this.extension});
 
   @override
   final String? dirName;
   @override
-  final String? name;
+  final String? origin;
+  @override
+  final String? replace;
   @override
   final String? extension;
 
   @override
   String toString() {
-    return 'FileModel(dirName: $dirName, name: $name, extension: $extension)';
+    return 'FileModel(dirName: $dirName, origin: $origin, replace: $replace, extension: $extension)';
   }
 
   @override
@@ -133,13 +149,15 @@ class _$FileModelImpl implements _FileModel {
         (other.runtimeType == runtimeType &&
             other is _$FileModelImpl &&
             (identical(other.dirName, dirName) || other.dirName == dirName) &&
-            (identical(other.name, name) || other.name == name) &&
+            (identical(other.origin, origin) || other.origin == origin) &&
+            (identical(other.replace, replace) || other.replace == replace) &&
             (identical(other.extension, extension) ||
                 other.extension == extension));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, dirName, name, extension);
+  int get hashCode =>
+      Object.hash(runtimeType, dirName, origin, replace, extension);
 
   @JsonKey(ignore: true)
   @override
@@ -151,13 +169,16 @@ class _$FileModelImpl implements _FileModel {
 abstract class _FileModel implements FileModel {
   const factory _FileModel(
       {final String? dirName,
-      final String? name,
+      final String? origin,
+      final String? replace,
       final String? extension}) = _$FileModelImpl;
 
   @override
   String? get dirName;
   @override
-  String? get name;
+  String? get origin;
+  @override
+  String? get replace;
   @override
   String? get extension;
   @override
