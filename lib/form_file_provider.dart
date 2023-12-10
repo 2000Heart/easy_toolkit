@@ -37,7 +37,7 @@ class FormFile extends _$FormFile{
   }
 
   set extension(String extension) {
-    state = state.copyWith(extension: extension);
+    state = state.copyWith(extension: ".$extension");
   }
 
   Future setDir() async{

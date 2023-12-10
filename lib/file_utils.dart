@@ -1,8 +1,10 @@
 import 'dart:developer';
 import 'dart:io';
 import 'package:easy_toolkit/model/file_model.dart';
+import 'package:easy_toolkit/toast_utils.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:path/path.dart' as path;
+import 'package:url_launcher/url_launcher.dart';
 
 class FileUtils{
 
@@ -15,39 +17,45 @@ class FileUtils{
     return await FilePicker.platform.getDirectoryPath();
   }
 
-  static replaceFileName(String filePath,String text,String replace) {
-    // 获取文件的目录路径和文件名
-    String directory = path.dirname(filePath);
-    String fileName = path.basenameWithoutExtension(filePath);
-    String extension = path.extension(filePath);
-    // 新文件路径
-    String newFilePath = path.join(directory, fileName.replaceAll(RegExp(r'text'), replace),extension);
-    // 创建File对象
-    File file = File(filePath);
-    // 重命名文件
-    file.renameSync(newFilePath);
-    log('文件格式更改成功！');
+  static Future reformatFiles(List<PlatformFile> files, FileModel newFile) async{
+    List<File> newFiles = [];
+    bool noIssue = true;
+    while(noIssue){
+
+    }
   }
 
-  static reformatFile(String filePath, FileModel newFile, {int? index}) {
+  static Future<File?> reformatFile(String filePath, FileModel newFile, {int? index}) async {
     // 获取文件的目录路径和文件名
-    String directory = path.dirname(filePath);
+    String dirName = path.dirname(filePath);
     String fileName = path.basenameWithoutExtension(filePath);
     String extension = path.extension(filePath);
     String newFileName = fileName;
-    if(newFile.replace != null){
-      if(newFile.origin != null){
-        newFileName = newFileName.replaceAll(RegExp(newFile.origin!), newFile.replace!);
-      }else{
+    if (newFile.replace != null) {
+      if (newFile.origin != null) {
+        newFileName =
+            fileName.replaceAll(RegExp(newFile.origin!), newFile.replace!);
+      } else {
         newFileName = "${newFile.replace!}$index";
       }
     }
-    // 新文件路径
-    String newFilePath = path.join(directory, newFileName,newFile.extension ?? extension);
-    // 创建File对象
-    File file = File(filePath);
-    // 重命名文件
-    file.renameSync(newFilePath);
-    log('文件格式更改成功！');
+    String newFilePath = path.join(newFile.dirName ?? dirName,
+        "$newFileName${newFile.extension ?? extension}");
+    return File(newFilePath);
+
+    //   // 重命名文件
+    //   File result = file.renameSync(newFilePath);
+    //   var uri = Uri.file(path.dirname(result.path),windows: Platform.isWindows);
+    //   if(!Directory(uri.toFilePath()).existsSync()){
+    //     ToastUtils.show("处理文件遇到错误");
+    //     return;
+    //   }
+    //   if(await canLaunchUrl(uri)){
+    //    launchUrl(uri);
+    //   }else{
+    //     ToastUtils.show("处理文件遇到错误");
+    //   }
+    //   ToastUtils.show("文件更改成功！");
+    // }
   }
 }
